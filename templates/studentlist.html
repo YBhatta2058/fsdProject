@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>STUDENT LIST</h1>
+    <table border = "1">
+        <thead>
+            <th>Name</th>
+            <th>Courses Registered</th>
+        </thead>
+        <tbody>
+
+            {% for student in students %}
+            <tr>
+                <td><a href = "{% url 'detailView' student.id %}">{{student.name}}</a></td>
+                <td>
+                    {% for c in student.courses.all %}
+                    <span>{{c.name}} |</span>
+                    {% endfor %}
+                </td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <a href = "{% url 'generateCSV' %}">Click here to download the csv file</a> <br><br>
+    <a href = "/generatePDF">Click here to download the pdf file</a>
+</body>
+</html>

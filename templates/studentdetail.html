@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(6, 6, 6);
+            margin-left: 300px;
+            margin-right: 300px;
+            background-color: black;
+            color: rgb(158, 152, 145);
+            padding: 2rem;
+        }
+        ul li{
+            display: flex;
+            justify-content: center;
+        }
+        .o1
+        {
+            color: rgb(249, 249, 249);
+        }
+    </style>
+</head>
+<body>
+    <center><h1>DETAILS OF THE STUDENT</h1></center>
+    <ul>
+        <li class="o1">Name:{{student.name}}</li>
+        <li class="o1">Age:{{student.age}}</li>
+        <li class="o1">Gender:{{student.gender}}</li>
+        <h3>Courses Registered by this mf</h3>
+        {% for course in student.courses.all %}
+            <li>{{course.name}}</li>
+        {% endfor %}
+    </ul>
+    <a href="/generateCSV">Generate CSV</a>
+    <a href="/generatePDF">Generate PDF</a>
+</body>
+</html>

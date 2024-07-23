@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{
+        padding: .5rem;
+        background: black;
+        color: white;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <h1>List of Students and registered courses</h1>
+    <table border = "1">
+    <thead>
+        <th>Name</th>
+        <th>Courses registered</th>
+    </thead>
+    <tbody>
+        {% for s in students %}
+            <tr>
+                <td>{{s.name}}</td>
+                <td>
+                    {% for course in s.courses.all %}
+                        <span>{{course.name}} || </span>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
